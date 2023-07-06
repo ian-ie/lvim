@@ -170,7 +170,17 @@ lvim.plugins = {
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        dependencies = { "rcarriga/nvim-notify", "MunifTanjim/nui.nvim" },
+        dependencies = {
+            {
+                "rcarriga/nvim-notify",
+                config = function()
+                    require("notify").setup({
+                        background_colour = "#000000",
+                    })
+                end
+            },
+            { "MunifTanjim/nui.nvim" } },
+
         opts = others.noice,
         keys = {
             { "<leader>ns", "<cmd>Notifications<cr>",   desc = "show notifications" },
