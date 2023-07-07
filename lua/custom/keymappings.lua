@@ -1,5 +1,5 @@
 lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>"
-lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
+lvim.keys.normal_mode["<C-s>"] = "<cmd>w!<CR>"
 lvim.keys.normal_mode["<Tab>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-Tab>"] = "<cmd>BufferLineCyclePrev<cr>"
 

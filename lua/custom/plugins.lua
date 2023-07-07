@@ -14,6 +14,14 @@ lvim.plugins = {
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
+    --显示颜色
+    {
+        "norcalli/nvim-colorizer.lua",
+        event = "VeryLazy",
+        config = function()
+            require("colorizer").setup()
+        end
+    },
     --置灰未使用变量
     {
         "zbirenbaum/neodim",
@@ -241,7 +249,6 @@ lvim.plugins = {
         event = "InsertEnter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-            "L3MON4D3/LuaSnip",
             "hrsh7th/nvim-cmp",
         },
         opts = others.tabout,
