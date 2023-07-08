@@ -22,6 +22,17 @@ lvim.plugins = {
             require("colorizer").setup()
         end
     },
+    {
+        "glepnir/lspsaga.nvim",
+        event = "LspAttach",
+        config = function()
+            require("lspsaga").setup(others.saga)
+        end,
+        dependencies = {
+            { "nvim-tree/nvim-web-devicons" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
+    },
     --置灰未使用变量
     {
         "zbirenbaum/neodim",
@@ -100,6 +111,12 @@ lvim.plugins = {
     --nvimapi补全
     { "folke/neodev.nvim" },
 
+    -- 会话
+    {
+        "folke/persistence.nvim",
+        event = "BufReadPre", -- this will only start session saving when an actual file was opened
+        opts = { options = { "buffers", "curdir", "tabpages", "winsize", "folds" } }
+    },
     -- 翻译
     {
         "voldikss/vim-translator",
@@ -252,14 +269,6 @@ lvim.plugins = {
             "hrsh7th/nvim-cmp",
         },
         opts = others.tabout,
-    },
-
-    --符号信息
-    {
-        "simrat39/symbols-outline.nvim",
-        cmd = "SymbolsOutline",
-        dependencies = "neovim/nvim-lspconfig",
-        opts = others.symbols_outline,
     },
 
     --折叠
