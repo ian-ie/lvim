@@ -1,48 +1,48 @@
 local function setn(key, cmd)
-    lvim.keys.normal_mode[key] = cmd
+	lvim.keys.normal_mode[key] = cmd
 end
 
 local function setv(key, cmd)
-    lvim.keys.virtual_mode[key] = { cmd }
+	lvim.keys.virtual_mode[key] = { cmd }
 end
 
 local function seti(key, cmd)
-    lvim.keys.insert_mode[key] = { cmd }
+	lvim.keys.insert_mode[key] = { cmd }
 end
 
 local function setwk(key, cmd, desc, vmod)
-    local wk = lvim.builtin.which_key
-    local map = vmod and wk.vmappings or wk.mappings
-    map[key] = { cmd, desc }
+	local wk = lvim.builtin.which_key
+	local map = vmod and wk.vmappings or wk.mappings
+	map[key] = { cmd, desc }
 end
 
 local function setwksn(key, name, vmod)
-    local wk = lvim.builtin.which_key
-    local map = vmod and wk.vmappings or wk.mappings
-    local rk = map[key]
-    if rk then
-        rk.name = name
-    else
-        rk = { name = name }
-        map[key] = rk
-    end
+	local wk = lvim.builtin.which_key
+	local map = vmod and wk.vmappings or wk.mappings
+	local rk = map[key]
+	if rk then
+		rk.name = name
+	else
+		rk = { name = name }
+		map[key] = rk
+	end
 end
 
 local function setwks(root, arr, vmod)
-    local wk = lvim.builtin.which_key
-    local map = vmod and wk.vmappings or wk.mappings
-    local rk = map[root]
+	local wk = lvim.builtin.which_key
+	local map = vmod and wk.vmappings or wk.mappings
+	local rk = map[root]
 
-    if not arr then
-        return
-    end
+	if not arr then
+		return
+	end
 
-    for _, _tab in ipairs(arr) do
-        local sk = _tab[1]
-        local cmd = _tab[2]
-        local desc = _tab[3]
-        rk[sk] = { cmd, desc }
-    end
+	for _, _tab in ipairs(arr) do
+		local sk = _tab[1]
+		local cmd = _tab[2]
+		local desc = _tab[3]
+		rk[sk] = { cmd, desc }
+	end
 end
 
 -- Lspsaga
@@ -55,23 +55,19 @@ setn("]E", "lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnos
 setn("gk", "<cmd>Lspsaga hover_doc ++keep<CR>")
 
 setwk("o", "<cmd>Lspsaga outline<cr>", "outline")
-setwks("l",
-    {
-        { "a", "<cmd>Lspsaga code_action<cr>",      "Code Action" },
-        { "r", "<cmd>Lspsaga rename<cr>",           "Rename" },
-        { "R", "<cmd>Lspsaga rename ++Project<cr>", "Rename Project" }
-    })
-
+setwks("l", {
+	{ "a", "<cmd>Lspsaga code_action<cr>", "Code Action" },
+	{ "r", "<cmd>Lspsaga rename<cr>", "Rename" },
+	{ "R", "<cmd>Lspsaga rename ++Project<cr>", "Rename Project" },
+})
 
 -- persistence
 setwksn("S", "Session")
-setwks("S",
-    {
-        { "s", "<cmd>lua require('persistence').load()<cr>",                "Restore Cur Dir Session" },
-        { "l", "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
-        { "d", "<cmd>lua require('persistence').stop()<cr>",                "Quit without saving session" }
-    })
-
+setwks("S", {
+	{ "s", "<cmd>lua require('persistence').load()<cr>", "Restore Cur Dir Session" },
+	{ "l", "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+	{ "d", "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+})
 
 seti("<C-s>", "<ESC><cmd>w<cr>")
 
