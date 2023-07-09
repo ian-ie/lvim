@@ -24,7 +24,7 @@ lvim.plugins = {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
-		event = { "BufRead", "BufNew" },
+		event = {"InsertEnter"},
 		config = function()
 			require("lsp_signature").setup(others.signature)
 		end,
@@ -150,17 +150,26 @@ lvim.plugins = {
 			{ "<leader>rr", "<Plug>SnipReset", desc = "reset" },
 		},
 	},
-    -- 多光标
-    {
-        "mg979/vim-visual-multi",
-        event = "VeryLazy",
-        branch = "master",
-        init = function ()
-            vim.g.VM_maps = {
-
-            }
-        end
-    },
+	-- 多光标
+	{
+		"mg979/vim-visual-multi",
+		event = "VeryLazy",
+		branch = "master",
+		init = function()
+			vim.g.VM_maps = {
+				["Find Under"] = "<C-d>",
+				-- ["Find Subword Under"] = "<C-u>",
+				["Select All"]         = "<C-a>" ,
+				["Select h"]           = "<C-h>",
+				["Select l"]           = "<C-l>",
+				["Add Cursor Up"] = "<C-q>",
+				["Add Cursor Down"] = "<C-e>",
+				["Add Cursor At Pos"]  = "<C-x>" ,
+				["Add Cursor At Word"] = "<C-w>" ,
+				["Remove Region"] = "q",
+			}
+		end,
+	},
 
 	-- 跳转
 	{
