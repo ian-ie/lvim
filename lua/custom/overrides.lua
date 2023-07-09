@@ -1,4 +1,9 @@
 lvim.builtin.lualine.style = "default"
+
+lvim.lsp.on_attach_callback = function(client, bufnr)
+    require("lsp_signature").on_attach()
+end
+
 lvim.builtin.treesitter = {
     match = { enable = true },
     textobjects = {
@@ -51,6 +56,6 @@ lvim.builtin.treesitter = {
             "#AF7AC5",
             "#3498DB",
             "#FF9800",
-        }
+        },
     },
 }
