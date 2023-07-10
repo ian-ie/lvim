@@ -1,4 +1,4 @@
-lvim.builtin.lualine.style = "default"
+-- lvim.builtin.lualine.style = "default"
 
 lvim.lsp.on_attach_callback = function(client, bufnr)
     require("lsp_signature").on_attach()

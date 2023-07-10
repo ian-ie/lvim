@@ -24,7 +24,7 @@ lvim.plugins = {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
-		event = {"InsertEnter"},
+		event = { "BufRead" },
 		config = function()
 			require("lsp_signature").setup(others.signature)
 		end,
@@ -159,13 +159,13 @@ lvim.plugins = {
 			vim.g.VM_maps = {
 				["Find Under"] = "<C-d>",
 				-- ["Find Subword Under"] = "<C-u>",
-				["Select All"]         = "<C-a>" ,
-				["Select h"]           = "<C-h>",
-				["Select l"]           = "<C-l>",
+				["Select All"] = "<C-a>",
+				["Select h"] = "<C-h>",
+				["Select l"] = "<C-l>",
 				["Add Cursor Up"] = "<C-q>",
 				["Add Cursor Down"] = "<C-e>",
-				["Add Cursor At Pos"]  = "<C-x>" ,
-				["Add Cursor At Word"] = "<C-w>" ,
+				["Add Cursor At Pos"] = "<C-x>",
+				["Add Cursor At Word"] = "<C-w>",
 				["Remove Region"] = "q",
 			}
 		end,
@@ -394,5 +394,12 @@ lvim.plugins = {
 			{ "<leader>nd", "<cmd>NoiceDisable<cr>", desc = "NoiceDisable" },
 			{ "<leader>ne", "<cmd>NoiceEnable<cr>", desc = "NoiceEnable" },
 		},
+	},
+	{
+		"karb94/neoscroll.nvim",
+		event = "BufRead",
+		config = function()
+			require("neoscroll").setup(others.scroll)
+		end,
 	},
 }
