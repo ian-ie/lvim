@@ -72,3 +72,4 @@ setwks("l", { { "v", ":lua vim.diagnostic.config({ virtual_text = false})<CR>", 
 setwks("b", { { "o", "<cmd>BufOnly<CR>:e<CR>", "close all buffer but this" } })
 
 lvim.builtin.which_key.mappings.L.c = { name = "LeetCode" }
+lvim.builtin.which_key.mappings.s.p = nil

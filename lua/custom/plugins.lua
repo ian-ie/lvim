@@ -8,7 +8,7 @@ lvim.plugins = {
 			require("better_escape").setup()
 		end,
 	},
-	{ "metakirby5/codi.vim", cmd = "Codi" },
+	{ "metakirby5/codi.vim", cmd = { "Codi" , "CodiNew"} },
 
 	{
 		"folke/todo-comments.nvim",
