@@ -33,8 +33,6 @@ M.signature = {
 	floating_window = false,
 }
 
-M.saga = {}
-
 M.flash = {
 	highlight = {
 		backdrop = false,
@@ -122,21 +120,37 @@ M.ufo = {
 	end,
 }
 
-M.specs = {
-	show_jumps = true,
-	min_jump = 10,
-	popup = {
-		delay_ms = 0, -- delay before popup displays
-		inc_ms = 10, -- time increments used for fade/resize effects
-		blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
-		width = 10,
-		winhl = "PMenu",
-		fader = require("specs").sinus_fader,
-		resizer = require("specs").shrink_resizer,
-	},
-	ignore_filetypes = {},
-	ignore_buftypes = {
-		nofile = true,
+M.outline = {
+	autofold_depth = 1,
+	symbols = {
+		File = { icon = "", hl = "@text.uri" },
+		Module = { icon = "", hl = "@namespace" },
+		Namespace = { icon = "", hl = "@namespace" },
+		Package = { icon = "󰏓", hl = "@namespace" },
+		Class = { icon = "𝓒", hl = "@type" },
+		Method = { icon = "ƒ", hl = "@method" },
+		Property = { icon = "", hl = "@method" },
+		Field = { icon = "󰽐", hl = "@field" },
+		Constructor = { icon = "", hl = "@constructor" },
+		Enum = { icon = "ℰ", hl = "@type" },
+		Interface = { icon = "ﰮ", hl = "@type" },
+		Function = { icon = "", hl = "@function" },
+		Variable = { icon = "", hl = "@constant" },
+		Constant = { icon = "", hl = "@constant" },
+		String = { icon = "", hl = "@string" },
+		Number = { icon = "", hl = "@number" },
+		Boolean = { icon = "⊨", hl = "@boolean" },
+		Array = { icon = "󱃶", hl = "@constant" },
+		Object = { icon = "⦿", hl = "@type" },
+		Key = { icon = "", hl = "@type" },
+		Null = { icon = "󰟢", hl = "@type" },
+		EnumMember = { icon = "", hl = "@field" },
+		Struct = { icon = "𝓢", hl = "@type" },
+		Event = { icon = "🗲", hl = "@type" },
+		Operator = { icon = "+", hl = "@operator" },
+		TypeParameter = { icon = "𝙏", hl = "@parameter" },
+		Component = { icon = "󰡀", hl = "@function" },
+		Fragment = { icon = "", hl = "@constant" },
 	},
 }
 

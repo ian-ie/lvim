@@ -45,22 +45,6 @@ local function setwks(root, arr, vmod)
 	end
 end
 
--- Lspsaga
-setn("gh", "<cmd>Lspsaga lsp_finder<cr>")
-setn("gd", "<cmd>Lspsaga goto_definition<cr>")
-setn("[e", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
-setn("[E", "lua require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })")
-setn("]e", "<cmd>Lspsaga diagnostic_jump_next<cr>")
-setn("]E", "lua require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })")
-setn("gk", "<cmd>Lspsaga hover_doc ++keep<CR>")
-
-setwk("o", "<cmd>Lspsaga outline<cr>", "outline")
-setwks("l", {
-	{ "a", "<cmd>Lspsaga code_action<cr>", "Code Action" },
-	{ "r", "<cmd>Lspsaga rename<cr>", "Rename" },
-	{ "R", "<cmd>Lspsaga rename ++Project<cr>", "Rename Project" },
-})
-
 -- persistence
 setwksn("S", "Session")
 setwks("S", {
@@ -75,6 +59,7 @@ setn("<C-s>", "<cmd>w<cr>")
 setn("<Tab>", "<cmd>BufferLineCycleNext<cr>")
 setn("<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
 
+setwk("o", "<cmd>SymbolsOutline<cr>" , "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
 setwk("c", "<cmd>cd %:h<CR>", "Cd Cur")
 

@@ -24,21 +24,17 @@ lvim.plugins = {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
-		event = { "BufRead" },
+		event = { "BufRead", "BufNew" },
 		config = function()
 			require("lsp_signature").setup(others.signature)
 		end,
 	},
 	{
-		"glepnir/lspsaga.nvim",
-		event = "LspAttach",
+		"simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
 		config = function()
-			require("lspsaga").setup(others.saga)
+			require("symbols-outline").setup(others.outline)
 		end,
-		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
 	},
 	--置灰未使用变量
 	{
@@ -160,8 +156,8 @@ lvim.plugins = {
 				["Find Under"] = "<C-d>",
 				-- ["Find Subword Under"] = "<C-u>",
 				["Select All"] = "<C-a>",
-				["Select h"] = "<C-h>",
-				["Select l"] = "<C-l>",
+				-- ["Select h"] = "<C-h>",
+				-- ["Select l"] = "<C-l>",
 				["Add Cursor Up"] = "<C-q>",
 				["Add Cursor Down"] = "<C-e>",
 				["Add Cursor At Pos"] = "<C-x>",
