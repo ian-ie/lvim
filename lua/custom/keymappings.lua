@@ -59,7 +59,7 @@ setn("<C-s>", "<cmd>w<cr>")
 setn("<Tab>", "<cmd>BufferLineCycleNext<cr>")
 setn("<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
 
-setwk("o", "<cmd>SymbolsOutline<cr>" , "SymbolsOutline")
+setwk("o", "<cmd>SymbolsOutline<cr>", "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
 setwk("c", "<cmd>cd %:h<CR>", "Cd Cur")
 
@@ -70,6 +70,20 @@ setwksn("T", "Translate")
 setwks("s", { { "P", "<cmd>Telescope projects<cr>", "projects" } })
 setwks("l", { { "v", ":lua vim.diagnostic.config({ virtual_text = false})<CR>", "close virtual" } })
 setwks("b", { { "o", "<cmd>BufOnly<CR>:e<CR>", "close all buffer but this" } })
+
+lvim.lsp.buffer_mappings.normal_mode["[e"] = {
+	function()
+		return vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	end,
+	"Goto Prev Error",
+}
+lvim.lsp.buffer_mappings.normal_mode["]e"] = {
+	function()
+		return vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+	end,
+	"Goto Next Error",
+}
+
 
 lvim.builtin.which_key.mappings.L.c = { name = "LeetCode" }
 lvim.builtin.which_key.mappings.s.p = nil
