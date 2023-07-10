@@ -8,7 +8,7 @@ lvim.plugins = {
 			require("better_escape").setup()
 		end,
 	},
-	{ "metakirby5/codi.vim", cmd = { "Codi" , "CodiNew"} },
+	{ "metakirby5/codi.vim", cmd = { "Codi", "CodiNew" } },
 
 	{
 		"folke/todo-comments.nvim",
@@ -181,6 +181,7 @@ lvim.plugins = {
 			{ "<leader>rs", "<Plug>SnipRun", desc = "snip" },
 			{ "<leader>rc", "<Plug>SnipClose", desc = "close" },
 			{ "<leader>rr", "<Plug>SnipReset", desc = "reset" },
+			{ "<leader>r", "<Plug>SnipRun", desc = "run", mode = "v" },
 		},
 	},
 	-- 多光标
