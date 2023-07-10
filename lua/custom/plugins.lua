@@ -23,6 +23,15 @@ lvim.plugins = {
 			require("colorizer").setup()
 		end,
 	},
+
+	--quickfix增强
+	{
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+		config = function()
+			require("bqf").setup()
+		end,
+	},
 	-- 搜索替换
 	{
 		"nvim-pack/nvim-spectre",
