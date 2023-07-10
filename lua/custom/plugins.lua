@@ -8,6 +8,7 @@ lvim.plugins = {
 			require("better_escape").setup()
 		end,
 	},
+	{ "metakirby5/codi.vim", cmd = "Codi" },
 
 	{
 		"folke/todo-comments.nvim",
@@ -22,6 +23,34 @@ lvim.plugins = {
 			require("colorizer").setup()
 		end,
 	},
+	-- 搜索替换
+	{
+		"nvim-pack/nvim-spectre",
+		event = "BufRead",
+		config = function()
+			require("spectre").setup()
+		end,
+		keys = {
+			{ "<leader>so", "<cmd>lua require('spectre').open()<CR>", desc = "Open Spectre" },
+			{
+				"<leader>sw",
+				"<Esc><cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+				desc = "Search Current Word",
+			},
+			{
+				"<leader>sp",
+				"<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
+				desc = "Search On Current File",
+			},
+			{
+				"<leader>sw",
+				"<cmd>lua require('spectre').open_visual()<CR>",
+				desc = "Search Current Word",
+				mode = "v",
+			},
+		},
+	},
+	-- 参数提示
 	{
 		"ray-x/lsp_signature.nvim",
 		event = { "BufRead", "BufNew" },
@@ -29,9 +58,10 @@ lvim.plugins = {
 			require("lsp_signature").setup(others.signature)
 		end,
 	},
+	-- 符号信息
 	{
 		"simrat39/symbols-outline.nvim",
-        cmd = "SymbolsOutline",
+		cmd = "SymbolsOutline",
 		config = function()
 			require("symbols-outline").setup(others.outline)
 		end,
@@ -133,6 +163,13 @@ lvim.plugins = {
 			{ "<leader>Tl", "<cmd>TranslateL<cr>", desc = "log" },
 		},
 	},
+	-- 行跳转
+	{
+		"nacro90/numb.nvim",
+		config = function()
+			require("numb").setup()
+		end,
+	},
 
 	-- 代码片段运行
 	{
@@ -161,13 +198,13 @@ lvim.plugins = {
 				["Add Cursor Up"] = "<C-q>",
 				["Add Cursor Down"] = "<C-e>",
 				["Add Cursor At Pos"] = "<C-x>",
-				["Add Cursor At Word"] = "<C-w>",
+				-- ["Add Cursor At Word"] = "<C-w>",
 				["Remove Region"] = "q",
 			}
 		end,
 	},
 
-	-- 跳转
+	-- 快速移动
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
@@ -251,12 +288,14 @@ lvim.plugins = {
 		},
 	},
 	{ "p00f/nvim-ts-rainbow" },
+	-- %增强
 	{
 		"andymass/vim-matchup",
 		config = function()
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
 	},
+	-- 智能v
 	{
 		"RRethy/nvim-treesitter-textsubjects",
 		dependencies = "nvim-treesitter/nvim-treesitter",
@@ -274,10 +313,12 @@ lvim.plugins = {
 			})
 		end,
 	},
+	-- ts对象增强
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
+	-- v增强
 	{
 		"chrisgrieser/nvim-various-textobjs",
 		opts = { useDefaultKeymaps = true },
@@ -391,6 +432,7 @@ lvim.plugins = {
 			{ "<leader>ne", "<cmd>NoiceEnable<cr>", desc = "NoiceEnable" },
 		},
 	},
+	-- 平滑滚动
 	{
 		"karb94/neoscroll.nvim",
 		event = "BufRead",
