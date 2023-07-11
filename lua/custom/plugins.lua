@@ -1,6 +1,7 @@
 local others = require("custom.configs.others")
 
 lvim.plugins = {
+	{ "spin6lock/vim_sproto", ft = "sproto" },
 	-- 快捷jj
 	{
 		"max397574/better-escape.nvim",
@@ -297,7 +298,7 @@ lvim.plugins = {
 			{ "<leader>Lcs", "<cmd>LCSubmit<cr>", desc = "submit" },
 		},
 	},
-	{ "p00f/nvim-ts-rainbow" },
+	{ "HiPhish/nvim-ts-rainbow2" },
 	-- %增强
 	{
 		"andymass/vim-matchup",
