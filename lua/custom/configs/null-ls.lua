@@ -3,6 +3,7 @@ formatters.setup({
 	{ name = "black" },
 	{ name = "isort" },
 	{ name = "stylua" },
+	{ name = "shfmt" },
 })
 
 local linters = require("lvim.lsp.null-ls.linters")
