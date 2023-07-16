@@ -4,6 +4,9 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
 	require("lsp_signature").on_attach()
 end
 
+lvim.builtin.alpha.dashboard.section.buttons.entries[5] =
+	{ "s", lvim.icons.ui.Fire .. "  Recent Seesion", "<cmd>lua require('persistence').load({ last = true })<cr>" }
+
 lvim.builtin.treesitter = {
 	match = { enable = true },
 	textobjects = {
