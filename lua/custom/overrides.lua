@@ -4,6 +4,10 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
 	require("lsp_signature").on_attach()
 end
 
+lvim.builtin.telescope.on_config_done = function(telescope)
+	pcall(telescope.load_extension("live_grep_args"))
+end
+
 lvim.builtin.alpha.dashboard.section.buttons.entries[5] =
 	{ "s", lvim.icons.ui.Fire .. "  Recent Seesion", "<cmd>lua require('persistence').load({ last = true })<cr>" }
 
