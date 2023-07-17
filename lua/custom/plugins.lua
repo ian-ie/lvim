@@ -33,7 +33,6 @@ lvim.plugins = {
 			require("bqf").setup()
 		end,
 	},
-    {"nvim-telescope/telescope-live-grep-args.nvim"},
 	-- 搜索替换
 	{
 		"nvim-pack/nvim-spectre",
