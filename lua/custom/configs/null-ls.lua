@@ -4,6 +4,7 @@ formatters.setup({
 	{ name = "isort" },
 	{ name = "stylua" },
 	{ name = "shfmt" },
+	{ name = "prettier" , args = {"--tab-width", "4"} },
 })
 
 local linters = require("lvim.lsp.null-ls.linters")

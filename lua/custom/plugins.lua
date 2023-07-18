@@ -33,6 +33,7 @@ lvim.plugins = {
 			require("bqf").setup()
 		end,
 	},
+    {"romainl/vim-cool"},
 	-- 搜索替换
 	{
 		"nvim-pack/nvim-spectre",
@@ -451,7 +452,7 @@ lvim.plugins = {
 			require("neoscroll").setup(others.scroll)
 		end,
 	},
-    -- 更好的ui
+	-- 更好的ui
 	{
 		"stevearc/dressing.nvim",
 		lazy = true,
@@ -468,7 +469,7 @@ lvim.plugins = {
 			end
 		end,
 	},
-    -- 缩进线
+	-- 缩进线
 	{
 		"echasnovski/mini.indentscope",
 		version = false, -- wait till new 0.7.0 release to put it back on semver

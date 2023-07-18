@@ -7,7 +7,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 if vim.fn.has("wsl") == 1 then
 	vim.g.clipboard = {
