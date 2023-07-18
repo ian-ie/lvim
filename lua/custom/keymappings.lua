@@ -62,6 +62,7 @@ setn("<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
 setwk("o", "<cmd>SymbolsOutline<cr>", "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
 setwk("c", "<cmd>cd %:h<CR>", "Cd Cur")
+setwk("/", "<cmd>Telescope live_grep<cr>", "Search Text")
 
 setwksn("n", "Notice")
 setwksn("r", "SnipRun")
