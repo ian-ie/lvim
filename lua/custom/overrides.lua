@@ -1,5 +1,5 @@
 lvim.transparent_window = true
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "catppuccin"
 
 lvim.lsp.on_attach_callback = function(client, bufnr)
 	require("lsp_signature").on_attach()

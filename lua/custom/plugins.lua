@@ -475,8 +475,8 @@ lvim.plugins = {
 		version = false, -- wait till new 0.7.0 release to put it back on semver
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			-- symbol = "▏",
-			symbol = "│",
+			symbol = "▏",
+			-- symbol = "│",
 			options = { try_as_border = true },
 		},
 		init = function()
@@ -489,6 +489,17 @@ lvim.plugins = {
 		end,
 		config = function(_, opts)
 			require("mini.indentscope").setup(opts)
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+				no_italic = true,
+			})
 		end,
 	},
 }
