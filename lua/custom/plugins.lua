@@ -33,7 +33,7 @@ lvim.plugins = {
 			require("bqf").setup()
 		end,
 	},
-    {"romainl/vim-cool"},
+	{ "romainl/vim-cool" },
 	-- 搜索替换
 	{
 		"nvim-pack/nvim-spectre",
@@ -469,26 +469,19 @@ lvim.plugins = {
 			end
 		end,
 	},
-	-- 缩进线
 	{
-		"echasnovski/mini.indentscope",
-		version = false, -- wait till new 0.7.0 release to put it back on semver
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			-- symbol = "▏",
-			symbol = "│",
-			options = { try_as_border = true },
-		},
-		init = function()
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy", "mason" },
-				callback = function()
-					vim.b.miniindentscope_disable = true
-				end,
+		"olimorris/onedarkpro.nvim",
+		priority = 1000, -- Ensure it loads first
+		config = function()
+			require("onedarkpro").setup({
+				options = {
+					transparency = true,
+					cursorline = true,
+				},
+				plugins = {
+					nvim_tree = false,
+				},
 			})
-		end,
-		config = function(_, opts)
-			require("mini.indentscope").setup(opts)
 		end,
 	},
 }

@@ -1,3 +1,5 @@
+lvim.colorscheme = "onedark"
+
 lvim.lsp.on_attach_callback = function(client, bufnr)
 	require("lsp_signature").on_attach()
 end
