@@ -1,9 +1,11 @@
 vim.api.nvim_command("autocmd InsertLeave,CursorMoved * normal! zz")
+
 vim.filetype.add({
     extension = {
         tlua = "lua"
     }
 })
+
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
