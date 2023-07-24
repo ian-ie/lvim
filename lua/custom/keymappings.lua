@@ -63,6 +63,7 @@ setwk("o", "<cmd>SymbolsOutline<cr>", "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
 setwk("c", "<cmd>cd %:h<CR>", "Cd Cur")
 setwk("w", "<cmd>Telescope live_grep<cr>", "Search Text")
+setwk("/", "<Plug>(comment_toggle_blockwise_visual)", "block comment",true)
 
 setwksn("n", "Notice")
 setwksn("r", "SnipRun")
