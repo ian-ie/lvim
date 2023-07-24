@@ -5,6 +5,8 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
 	require("lsp_signature").on_attach()
 end
 
+lvim.builtin.indentlines.options.show_current_context = false
+
 lvim.builtin.alpha.dashboard.section.buttons.entries[5] =
 	{ "s", lvim.icons.ui.Fire .. "  Recent Seesion", "<cmd>lua require('persistence').load({ last = true })<cr>" }
 
@@ -52,7 +54,7 @@ lvim.builtin.treesitter = {
 	},
 	rainbow = {
 		enable = true,
-		hlgroups = {
+		--[[ hlgroups = {
 			"DevIconCss",
 			"DevIconPyo",
 			"DevIconTxt",
@@ -60,7 +62,7 @@ lvim.builtin.treesitter = {
 			"DevIconMl",
 			"DevIconSln",
 			"DevIconPpt",
-		},
+		}, ]]
 	},
 }
 

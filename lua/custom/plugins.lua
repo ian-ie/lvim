@@ -477,7 +477,7 @@ lvim.plugins = {
 		opts = {
 			symbol = "▏",
 			-- symbol = "│",
-			-- options = { try_as_border = false },
+			options = { try_as_border = false },
 		},
 		init = function()
 			vim.api.nvim_create_autocmd("FileType", {
@@ -510,7 +510,6 @@ lvim.plugins = {
 			require("onedarkpro").setup({
 				plugins = {
 					nvim_tree = false,
-					indentline = false,
 				},
 				options = {
 					cursorline = true, -- Use cursorline highlighting?
