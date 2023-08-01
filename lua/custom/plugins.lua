@@ -2,11 +2,32 @@ local others = require("custom.configs.others")
 
 lvim.plugins = {
 	{ "spin6lock/vim_sproto", ft = "sproto" },
+	{ "chrisbra/csv.vim", ft = "csv" },
 	-- 快捷jj
 	{
 		"max397574/better-escape.nvim",
 		config = function()
 			require("better_escape").setup()
+		end,
+	},
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}, -- Loads default behaviour
+					["core.concealer"] = {}, -- Adds pretty icons to your documents
+					["core.dirman"] = { -- Manages Neorg workspaces
+						config = {
+							workspaces = {
+								notes = "~/notes",
+							},
+						},
+					},
+				},
+			})
 		end,
 	},
 	{ "metakirby5/codi.vim", cmd = { "Codi", "CodiNew" } },
@@ -200,6 +221,7 @@ lvim.plugins = {
 		"mg979/vim-visual-multi",
 		event = "VeryLazy",
 		branch = "master",
+		enable = false,
 		init = function()
 			vim.g.VM_maps = {
 				["Find Under"] = "<C-d>",

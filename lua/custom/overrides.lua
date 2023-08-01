@@ -1,11 +1,12 @@
 lvim.transparent_window = true
 lvim.colorscheme = "onedark"
 
-lvim.lsp.on_attach_callback = function(client, bufnr)
+lvim.lsp.on_attach_callback = function()
 	require("lsp_signature").on_attach()
 end
 
 lvim.builtin.indentlines.options.show_current_context = false
+lvim.builtin.project.patterns= {".git", ".svn", ".luarc.json", "package.json"}
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[5] =
 	{ "s", lvim.icons.ui.Fire .. "  Recent Seesion", "<cmd>lua require('persistence').load({ last = true })<cr>" }
