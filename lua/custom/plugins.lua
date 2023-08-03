@@ -31,7 +31,6 @@ lvim.plugins = {
 		end,
 	},
 	{ "metakirby5/codi.vim", cmd = { "Codi", "CodiNew" } },
-
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -134,6 +133,16 @@ lvim.plugins = {
 				move_past_end_col = false,
 			})
 		end,
+	},
+	{
+		"folke/trouble.nvim",
+		cmd = "TroubleToggle",
+		keys = {
+			{ "<leader>tt", "<cmd>TroubleToggle<cr>", desc = "trouble" },
+			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "workspace" },
+			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "document" },
+			{ "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", desc = "references" },
+		},
 	},
 	--窗口预览goto
 	{

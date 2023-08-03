@@ -67,7 +67,7 @@ setwk("/", "<Plug>(comment_toggle_blockwise_visual)", "block comment",true)
 
 setwksn("n", "Notice")
 setwksn("r", "SnipRun")
-setwksn("n", "Notice")
+setwksn("t", "Trouble")
 setwksn("T", "Translate")
 setwks("s", { { "P", "<cmd>Telescope projects<cr>", "projects" } })
 setwks("l", { { "v", ":lua vim.diagnostic.config({ virtual_text = false})<CR>", "close virtual" } })
