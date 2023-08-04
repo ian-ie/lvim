@@ -142,8 +142,11 @@ lvim.plugins = {
 			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "workspace" },
 			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "document" },
 			{ "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", desc = "references" },
-		},
-	},
+			{ "gR", function() require("trouble").open("lsp_references") end, desc = "references", },
+			{ "gtn", function() require("trouble").next({ skip_groups = true, jump = true }) end, desc = "next group", },
+			{ "gtp", function() require("trouble").previous({ skip_groups = true, jump = true }) end, desc = "next group", },
+        },
+    },
 	--窗口预览goto
 	{
 		"rmagatti/goto-preview",

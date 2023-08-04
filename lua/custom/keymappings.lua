@@ -1,13 +1,13 @@
-local function setn(key, cmd)
-	lvim.keys.normal_mode[key] = cmd
+local function setn(key, cmd, opt)
+	vim.keymap.set("n", key, cmd, opt)
 end
 
-local function setv(key, cmd)
-	lvim.keys.virtual_mode[key] = { cmd }
+local function setv(key, cmd, opt)
+	vim.keymap.set("v", key, cmd, opt)
 end
 
-local function seti(key, cmd)
-	lvim.keys.insert_mode[key] = { cmd }
+local function seti(key, cmd, opt)
+	vim.keymap.set("i", key, cmd, opt)
 end
 
 local function setwk(key, cmd, desc, vmod)
@@ -63,7 +63,7 @@ setwk("o", "<cmd>SymbolsOutline<cr>", "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
 setwk("c", "<cmd>cd %:h<CR>", "Cd Cur")
 setwk("w", "<cmd>Telescope live_grep<cr>", "Search Text")
-setwk("/", "<Plug>(comment_toggle_blockwise_visual)", "block comment",true)
+setwk("/", "<Plug>(comment_toggle_blockwise_visual)", "block comment", true)
 
 setwksn("n", "Notice")
 setwksn("r", "SnipRun")
@@ -85,7 +85,6 @@ lvim.lsp.buffer_mappings.normal_mode["]e"] = {
 	end,
 	"Goto Next Error",
 }
-
 
 lvim.builtin.which_key.mappings.L.c = { name = "LeetCode" }
 lvim.builtin.which_key.mappings.s.p = nil
