@@ -1,5 +1,5 @@
 lvim.transparent_window = true
-lvim.colorscheme = "onedark"
+-- lvim.colorscheme = "onedark"
 
 lvim.lsp.on_attach_callback = function()
 	require("lsp_signature").on_attach()
@@ -54,16 +54,7 @@ lvim.builtin.treesitter = {
 		},
 	},
 	rainbow = {
-		enable = true,
-		--[[ hlgroups = {
-			"DevIconCss",
-			"DevIconPyo",
-			"DevIconTxt",
-			"DevIconFsi",
-			"DevIconMl",
-			"DevIconSln",
-			"DevIconPpt",
-		}, ]]
+		enable = false,
 	},
 }
 

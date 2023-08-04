@@ -31,6 +31,7 @@ lvim.plugins = {
 		end,
 	},
 	{ "metakirby5/codi.vim", cmd = { "Codi", "CodiNew" } },
+	-- 高亮todo
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -44,7 +45,6 @@ lvim.plugins = {
 			require("colorizer").setup()
 		end,
 	},
-
 	--quickfix增强
 	{
 		"kevinhwang91/nvim-bqf",
@@ -53,6 +53,7 @@ lvim.plugins = {
 			require("bqf").setup()
 		end,
 	},
+	-- 自动关闭搜索高亮
 	{ "romainl/vim-cool" },
 	-- 搜索替换
 	{
@@ -134,6 +135,7 @@ lvim.plugins = {
 			})
 		end,
 	},
+	-- 诊断合集
 	{
 		"folke/trouble.nvim",
 		cmd = "TroubleToggle",
@@ -142,11 +144,15 @@ lvim.plugins = {
 			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "workspace" },
 			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "document" },
 			{ "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", desc = "references" },
-			{ "gR", function() require("trouble").open("lsp_references") end, desc = "references", },
-			{ "gtn", function() require("trouble").next({ skip_groups = true, jump = true }) end, desc = "next group", },
-			{ "gtp", function() require("trouble").previous({ skip_groups = true, jump = true }) end, desc = "next group", },
-        },
-    },
+			{
+				"gR",
+				function()
+					require("trouble").open("lsp_references")
+				end,
+				desc = "references",
+			},
+		},
+	},
 	--窗口预览goto
 	{
 		"rmagatti/goto-preview",
@@ -234,7 +240,7 @@ lvim.plugins = {
 		event = "VeryLazy",
 		branch = "master",
 		enable = false,
-		init = function()
+		--[[ init = function()
 			vim.g.VM_maps = {
 				["Find Under"] = "<C-d>",
 				-- ["Find Subword Under"] = "<C-u>",
@@ -247,7 +253,7 @@ lvim.plugins = {
 				-- ["Add Cursor At Word"] = "<C-w>",
 				["Remove Region"] = "q",
 			}
-		end,
+		end, ]]
 	},
 
 	-- 快速移动
@@ -523,33 +529,6 @@ lvim.plugins = {
 		end,
 		config = function(_, opts)
 			require("mini.indentscope").setup(opts)
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = true,
-				no_italic = true,
-			})
-		end,
-	},
-	{
-		"olimorris/onedarkpro.nvim",
-		name = "onedarkpro",
-		priority = 1000, -- Ensure it loads first
-		config = function()
-			require("onedarkpro").setup({
-				plugins = {
-					nvim_tree = false,
-				},
-				options = {
-					cursorline = true, -- Use cursorline highlighting?
-					transparency = true, -- Use a transparent background?
-				},
-			})
 		end,
 	},
 }
