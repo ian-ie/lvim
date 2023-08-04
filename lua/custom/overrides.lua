@@ -1,4 +1,4 @@
-lvim.transparent_window = true
+-- lvim.transparent_window = true
 -- lvim.colorscheme = "onedark"
 
 lvim.lsp.on_attach_callback = function()
