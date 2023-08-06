@@ -181,7 +181,7 @@ lvim.plugins = {
 	--恢复上次浏览
 	{
 		"ethanholz/nvim-lastplace",
-		event = "VeryLazy",
+		lazy = false,
 		config = function()
 			require("nvim-lastplace").setup({
 				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
