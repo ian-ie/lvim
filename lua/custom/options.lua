@@ -17,6 +17,7 @@ vim.opt.softtabstop = 4
 vim.opt.cursorline = true
 vim.opt.fileencodings = "utf-8,gb2312,gbk"
 
+
 if vim.fn.has("wsl") == 1 then
 	vim.g.clipboard = {
 		name = "win32yank-wsl",
@@ -37,4 +38,6 @@ if vim.g.neovide then
 	vim.g.neovide_remember_window_size = false
 	vim.g.neovide_transparency = 0.9
 	vim.g.neovide_cursor_vfx_mode = "wireframe"
+else
+	lvim.transparent_window = true
 end
