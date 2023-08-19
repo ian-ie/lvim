@@ -46,18 +46,16 @@ lvim.plugins = {
 			})
 		end,
 		keys = {
-			{
-				"<leader>rS","<CMD>SearchReplaceSingleBufferSelections<CR>",
-				desc = "[s]elction list",
-			},
+			-- stylua: ignore
+			{ "<leader>rS", "<CMD>SearchReplaceSingleBufferSelections<CR>", desc = "[s]elction list" },
 			{ "<leader>ro", "<CMD>SearchReplaceSingleBuffeoOpen<CR>", desc = "[o]pen" },
 			{ "<leader>rw", "<CMD>SearchReplaceSingleBufferCWord<CR>", desc = "[w]ord" },
 			{ "<leader>rW", "<CMD>SearchReplaceSingleBufferCWORD<CR>", desc = "[W]ORD" },
 			{ "<leader>re", "<CMD>SearchReplaceSingleBufferCExpr<CR>", desc = "[e]xpr" },
 			{ "<leader>rF", "<CMD>SearchReplaceSingleBufferCFile<CR>", desc = "[f]ile" },
-			{ "<C-r>", "<CMD>SearchReplaceSingleBufferVisualSelection<CR>", mode="v" },
-			{ "<C-s>", "<CMD>SearchReplaceWithinVisualSelection<CR>", mode="v" },
-			{ "<C-b>", "<CMD>SearchReplaceWithinVisualSelectionCWord<CR>", mode="v" },
+			{ "<C-r>", "<CMD>SearchReplaceSingleBufferVisualSelection<CR>", mode = "v" },
+			{ "<C-s>", "<CMD>SearchReplaceWithinVisualSelection<CR>", mode = "v" },
+			{ "<C-b>", "<CMD>SearchReplaceWithinVisualSelectionCWord<CR>", mode = "v" },
 		},
 	},
 	{
@@ -67,23 +65,12 @@ lvim.plugins = {
 			require("spectre").setup()
 		end,
 		keys = {
+            -- stylua: ignore start
 			{ "<leader>so", "<cmd>lua require('spectre').open()<CR>", desc = "Open Spectre" },
-			{
-				"<leader>sw",
-				"<Esc><cmd>lua require('spectre').open_visual({select_word=true})<CR>",
-				desc = "Search Current Word",
-			},
-			{
-				"<leader>sp",
-				"<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
-				desc = "Search On Current File",
-			},
-			{
-				"<leader>sw",
-				"<cmd>lua require('spectre').open_visual()<CR>",
-				desc = "Search Current Word",
-				mode = "v",
-			},
+			{ "<leader>sw", "<Esc><cmd>lua require('spectre').open_visual({select_word=true})<CR>", desc = "Search Current Word", },
+			{ "<leader>sp", "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", desc = "Search On Current File", },
+			{ "<leader>sw", "<cmd>lua require('spectre').open_visual()<CR>", desc = "Search Current Word", mode = "v", },
+			-- stylua: ignore end
 		},
 	},
 	-- 参数提示
@@ -148,13 +135,8 @@ lvim.plugins = {
 			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "workspace" },
 			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "document" },
 			{ "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", desc = "references" },
-			{
-				"gR",
-				function()
-					require("trouble").open("lsp_references")
-				end,
-				desc = "references",
-			},
+            --  stylua: ignore
+			{ "gR", function() require("trouble").open("lsp_references") end, desc = "references", },
 		},
 	},
 	--窗口预览goto
@@ -266,46 +248,13 @@ lvim.plugins = {
 		event = "VeryLazy",
 		opts = others.flash,
 		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
-			{
-				"S",
-				mode = { "n", "o", "x" },
-				function()
-					require("flash").treesitter()
-				end,
-				desc = "Flash Treesitter",
-			},
-			{
-				"r",
-				mode = "o",
-				function()
-					require("flash").remote()
-				end,
-				desc = "Remote Flash",
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function()
-					require("flash").treesitter_search()
-				end,
-				desc = "Flash Treesitter Search",
-			},
-			{
-				"<c-s>",
-				mode = { "c" },
-				function()
-					require("flash").toggle()
-				end,
-				desc = "Toggle Flash Search",
-			},
+			-- stylua: ignore start
+			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash", },
+			{ "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter", },
+			{ "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash", },
+			{ "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Flash Treesitter Search", },
+			{ "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search", },
+			-- stylua: ignore end
 		},
 	},
 
@@ -423,44 +372,13 @@ lvim.plugins = {
 			require("ufo").setup(others.ufo)
 		end,
 		keys = {
-			{
-				"zR",
-				function()
-					require("ufo").openAllFolds()
-				end,
-				desc = "open all folds",
-			},
-			{
-				"zM",
-				function()
-					require("ufo").closeAllFolds()
-				end,
-				desc = "colse all folds",
-			},
-			{
-				"Z",
-				function()
-					local winid = require("ufo").peekFoldedLinesUnderCursor()
-					if not winid then
-						vim.lsp.buf.hover()
-					end
-				end,
-				desc = "preview fold",
-			},
-			{
-				"zr",
-				function()
-					require("ufo").openFoldsExceptKinds()
-				end,
-				desc = "open same level fold",
-			},
-			{
-				"zm",
-				function()
-					require("ufo").closeFoldsWith()
-				end,
-				desc = "close same level fold",
-			},
+			-- stylua: ignore start
+			{ "zR", function() require("ufo").openAllFolds() end, desc = "open all folds", },
+			{ "zM", function() require("ufo").closeAllFolds() end, desc = "colse all folds", },
+			{ "Z", function() local winid = require("ufo").peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end end, desc = "preview fold", },
+			{ "zr", function() require("ufo").openFoldsExceptKinds() end, desc = "open same level fold", },
+			{ "zm", function() require("ufo").closeFoldsWith() end, desc = "close same level fold", },
+            -- stylua: ignore end
 		},
 	},
 
