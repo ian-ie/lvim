@@ -37,6 +37,27 @@ lvim.plugins = {
 	{ "romainl/vim-cool" },
 	-- 搜索替换
 	{
+		"roobert/search-replace.nvim",
+		config = function()
+			require("search-replace").setup({
+				-- optionally override defaults
+				default_replace_single_buffer_options = "gcI",
+				default_replace_multi_buffer_options = "egcI",
+			})
+		end,
+		keys = {
+			{
+				"<leader>rS","<CMD>SearchReplaceSingleBufferSelections<CR>",
+				desc = "[s]elction list",
+			},
+			{ "<leader>ro", "<CMD>SearchReplaceSingleBufferOpen<CR>", desc = "[o]pen" },
+			{ "<leader>rw", "<CMD>SearchReplaceSingleBufferCWord<CR>", desc = "[w]ord" },
+			{ "<leader>rW", "<CMD>SearchReplaceSingleBufferCWORD<CR>", desc = "[W]ORD" },
+			{ "<leader>re", "<CMD>SearchReplaceSingleBufferCExpr<CR>", desc = "[e]xpr" },
+			{ "<leader>rF", "<CMD>SearchReplaceSingleBufferCFile<CR>", desc = "[f]ile" },
+		},
+	},
+	{
 		"nvim-pack/nvim-spectre",
 		event = "BufRead",
 		config = function()
@@ -207,8 +228,8 @@ lvim.plugins = {
 		build = "bash ./install.sh",
 		cmd = "SnipRun",
 		keys = {
-			{ "<leader>rf", "<cmd>%SnipRun<cr>", desc = "file" },
-			{ "<leader>rs", "<Plug>SnipRun", desc = "snip" },
+			{ "<leader>rf", "<cmd>%SnipRun<cr>", desc = "run file" },
+			{ "<leader>rs", "<Plug>SnipRun", desc = "run snip" },
 			{ "<leader>rc", "<Plug>SnipClose", desc = "close" },
 			{ "<leader>rr", "<Plug>SnipReset", desc = "reset" },
 			{ "<leader>r", "<Plug>SnipRun", desc = "run", mode = "v" },
