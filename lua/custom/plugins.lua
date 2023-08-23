@@ -191,12 +191,8 @@ lvim.plugins = {
 		"voldikss/vim-translator",
 		cmd = "TranslateW",
 		keys = {
-			{ "<leader>Tw", "<cmd>TranslateW<cr>", desc = "window", mode = { "n", "v" } },
-			{ "<leader>Te", "<cmd>Translate --target_lang=en <cr>", desc = "to en", "v" },
-			{ "<leader>Tr", "<cmd>TranslateR<cr>", desc = "replace", mode = { "n", "v" } },
-			{ "<leader>Tx", "<cmd>TranslateX<cr>", desc = "clipboard" },
-			{ "<leader>Th", "<cmd>TranslateH<cr>", desc = "history" },
-			{ "<leader>Tl", "<cmd>TranslateL<cr>", desc = "log" },
+			{ "gtw", "<cmd>TranslateW<cr>", desc = "window", mode = { "n", "v" } },
+			{ "gte", "<cmd>Translate --target_lang=en <cr>", desc = "to en", "v" },
 		},
 	},
 	-- 行跳转
