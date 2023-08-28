@@ -2,7 +2,6 @@ local others = require("custom.configs.others")
 
 lvim.plugins = {
 	{ "spin6lock/vim_sproto", ft = "sproto" },
-	{ "chrisbra/csv.vim", ft = "csv" },
 	-- 快捷jj
 	{
 		"max397574/better-escape.nvim",
@@ -265,30 +264,6 @@ lvim.plugins = {
 			})
 		end,
 	},
-
-	--myleetcode
-	{
-		"ian-ie/LeetCode.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-		config = function()
-			require("leetcode").setup({})
-		end,
-		keys = {
-			{ "<leader>Lcg", "<cmd>LCLogin<cr>", desc = "login" },
-			{ "<leader>Lcl", "<cmd>LCList<cr>", desc = "list" },
-			{ "<leader>Lci", "<cmd>LCInfo<cr>", desc = "info" },
-			{ "<leader>Lco", "<cmd>LCOpen<cr>", desc = "open" },
-			{ "<leader>Lcd", "<cmd>LCToday<cr>", desc = "day" },
-			{ "<leader>Lcr", "<cmd>LCReset<cr>", desc = "reset" },
-			{ "<leader>Lcc", "<cmd>LCClose<cr>", desc = "close" },
-			{ "<leader>Lct", "<cmd>LCTest<cr>", desc = "test" },
-			{ "<leader>Lcs", "<cmd>LCSubmit<cr>", desc = "submit" },
-		},
-	},
-	{ "HiPhish/nvim-ts-rainbow2" },
 	-- %增强
 	{
 		"andymass/vim-matchup",
