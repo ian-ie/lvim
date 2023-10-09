@@ -84,5 +84,17 @@ lvim.lsp.buffer_mappings.normal_mode["]e"] = {
 	"Goto Next Error",
 }
 
+lvim.lsp.buffer_mappings.normal_mode["gd"] = {
+	function()
+		return require("trouble").open("lsp_definitions")
+	end,
+}
+
+lvim.lsp.buffer_mappings.normal_mode["gr"] = {
+	function()
+		return require("trouble").open("lsp_references")
+	end,
+}
+
 lvim.builtin.which_key.mappings.L.c = { name = "LeetCode" }
 lvim.builtin.which_key.mappings.s.p = nil

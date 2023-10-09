@@ -3,12 +3,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "CursorMoved" }, {
 	command = "normal! zz",
 })
 
-vim.filetype.add({
-	extension = {
-		tlua = "lua",
-	},
-})
-
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
@@ -34,9 +28,9 @@ if vim.fn.has("wsl") == 1 then
 end
 
 if vim.g.neovide then
-	vim.o.guifont = "ComicShannsMono Nerd Font,等距更纱黑体 SC:h12"
+	vim.o.guifont = "JetBrainsMono Nerd Font Mono,等距更纱黑体 SC:h11"
 	vim.g.neovide_remember_window_size = false
-	vim.g.neovide_transparency = 0.9
+	vim.g.neovide_transparency = 0.95
 	vim.g.neovide_cursor_vfx_mode = "wireframe"
 else
 	lvim.transparent_window = true

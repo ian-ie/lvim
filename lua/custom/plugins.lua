@@ -2,6 +2,13 @@ local others = require("custom.configs.others")
 
 lvim.plugins = {
 	{ "spin6lock/vim_sproto", ft = "sproto" },
+	{
+		"junegunn/vim-easy-align",
+		keys = {
+			{ "ga", "<plug>(EasyAlign)", desc = "align", mode = "x" },
+			{ "ga", "<plug>(EasyAlign)", desc = "align", mode = "n" },
+		},
+	},
 	-- 快捷jj
 	{
 		"max397574/better-escape.nvim",
@@ -134,8 +141,6 @@ lvim.plugins = {
 			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "workspace" },
 			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "document" },
 			{ "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", desc = "references" },
-            --  stylua: ignore
-			{ "gR", function() require("trouble").open("lsp_references") end, desc = "references", },
 		},
 	},
 	--窗口预览goto
@@ -271,6 +276,11 @@ lvim.plugins = {
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
 	},
+    -- 彩虹括号
+    {
+        "HiPhish/nvim-ts-rainbow2",
+        dependencies = "nvim-treesitter/nvim-treesitter"
+    },
 	-- 智能v
 	{
 		"RRethy/nvim-treesitter-textsubjects",
@@ -349,7 +359,7 @@ lvim.plugins = {
 			{ "Z", function() local winid = require("ufo").peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end end, desc = "preview fold", },
 			{ "zr", function() require("ufo").openFoldsExceptKinds() end, desc = "open same level fold", },
 			{ "zm", function() require("ufo").closeFoldsWith() end, desc = "close same level fold", },
-            -- stylua: ignore end
+			-- stylua: ignore end
 		},
 	},
 
@@ -407,11 +417,6 @@ lvim.plugins = {
 		"echasnovski/mini.indentscope",
 		version = false, -- wait till new 0.7.0 release to put it back on semver
 		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			symbol = "▏",
-			-- symbol = "│",
-			options = { try_as_border = false },
-		},
 		init = function()
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy", "mason" },
@@ -421,7 +426,8 @@ lvim.plugins = {
 			})
 		end,
 		config = function(_, opts)
-			require("mini.indentscope").setup(opts)
+			require("mini.indentscope").setup()
 		end,
 	},
+	{ "olimorris/onedarkpro.nvim" },
 }

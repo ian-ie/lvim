@@ -1,9 +1,11 @@
+lvim.colorscheme = "onedark"
+
 lvim.lsp.on_attach_callback = function()
 	require("lsp_signature").on_attach()
 end
 
 lvim.builtin.indentlines.options.show_current_context = false
-lvim.builtin.project.patterns= {".git", ".svn", ".luarc.json", "package.json"}
+lvim.builtin.project.patterns = { ".git", ".svn", ".luarc.json", "package.json", ".project" }
 
 lvim.builtin.alpha.dashboard.section.buttons.entries[5] =
 	{ "s", lvim.icons.ui.Fire .. "  Recent Seesion", "<cmd>lua require('persistence').load({ last = true })<cr>" }
@@ -51,7 +53,7 @@ lvim.builtin.treesitter = {
 		},
 	},
 	rainbow = {
-		enable = false,
+		enable = true,
 	},
 }
 
