@@ -3,11 +3,22 @@ local others = require("custom.configs.others")
 lvim.plugins = {
 	{ "spin6lock/vim_sproto", ft = "sproto" },
 	{
+		"folke/zen-mode.nvim",
+		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "toggle zen mode" } },
+	},
+	{
 		"junegunn/vim-easy-align",
 		keys = {
 			{ "ga", "<plug>(EasyAlign)", desc = "align", mode = "x" },
 			{ "ga", "<plug>(EasyAlign)", desc = "align", mode = "n" },
 		},
+	},
+	-- 居中
+	{
+		"arnamak/stay-centered.nvim",
+		config = function()
+			require("stay-centered").setup()
+		end,
 	},
 	-- 快捷jj
 	{
@@ -162,12 +173,6 @@ lvim.plugins = {
 			})
 		end,
 	},
-
-	{
-		"numtostr/BufOnly.nvim",
-		cmd = "BufOnly",
-	},
-
 	--恢复上次浏览
 	{
 		"ethanholz/nvim-lastplace",
@@ -276,11 +281,11 @@ lvim.plugins = {
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
 	},
-    -- 彩虹括号
-    {
-        "HiPhish/nvim-ts-rainbow2",
-        dependencies = "nvim-treesitter/nvim-treesitter"
-    },
+	-- 彩虹括号
+	{
+		"HiPhish/nvim-ts-rainbow2",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
 	-- 智能v
 	{
 		"RRethy/nvim-treesitter-textsubjects",

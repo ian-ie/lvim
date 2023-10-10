@@ -1,8 +1,3 @@
-vim.api.nvim_create_autocmd({ "InsertLeave", "CursorMoved" }, {
-	pattern = "*",
-	command = "normal! zz",
-})
-
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4

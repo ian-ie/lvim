@@ -55,9 +55,16 @@ setwks("S", {
 
 seti("<C-s>", "<ESC><cmd>w<cr>")
 
+setn("H", "^", { noremap = true, silent = true })
+setn("L", "$", { noremap = true, silent = true })
+setn("go", "%", { desc = "Goto Match" })
+setn("yaa", "<cmd>%y+<cr>", { desc = "copy all" })
 setn("<C-s>", "<cmd>w<cr>")
 setn("<Tab>", "<cmd>BufferLineCycleNext<cr>")
 setn("<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
+
+setv("H", "^", { noremap = true, silent = true })
+setv("L", "$", { noremap = true, silent = true })
 
 setwk("o", "<cmd>SymbolsOutline<cr>", "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
@@ -69,7 +76,6 @@ setwksn("r", "SnipRun")
 setwksn("t", "Trouble")
 setwks("s", { { "P", "<cmd>Telescope projects<cr>", "projects" } })
 setwks("l", { { "v", ":lua vim.diagnostic.config({ virtual_text = false})<CR>", "close virtual" } })
-setwks("b", { { "o", "<cmd>BufOnly<CR>:e<CR>", "close all buffer but this" } })
 
 lvim.lsp.buffer_mappings.normal_mode["[e"] = {
 	function()
@@ -88,12 +94,14 @@ lvim.lsp.buffer_mappings.normal_mode["gd"] = {
 	function()
 		return require("trouble").open("lsp_definitions")
 	end,
+	"Goto definitions",
 }
 
 lvim.lsp.buffer_mappings.normal_mode["gr"] = {
 	function()
 		return require("trouble").open("lsp_references")
 	end,
+	"Goto references",
 }
 
 lvim.builtin.which_key.mappings.L.c = { name = "LeetCode" }
