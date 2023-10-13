@@ -57,7 +57,7 @@ seti("<C-s>", "<ESC><cmd>w<cr>")
 
 setn("H", "^", { noremap = true, silent = true })
 setn("L", "$", { noremap = true, silent = true })
-setn("go", "%", { desc = "Goto Match" })
+setn("go", "%", { noremap = true, silent = true, desc = "Goto Match" })
 setn("yaa", "<cmd>%y+<cr>", { desc = "copy all" })
 setn("<C-s>", "<cmd>w<cr>")
 setn("<Tab>", "<cmd>BufferLineCycleNext<cr>")

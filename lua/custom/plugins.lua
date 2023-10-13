@@ -12,6 +12,32 @@ lvim.plugins = {
 			{ "ga", "<plug>(EasyAlign)", desc = "align", mode = "x" },
 			{ "ga", "<plug>(EasyAlign)", desc = "align", mode = "n" },
 		},
+		config = function()
+			vim.cmd([[
+                let g:easy_align_delimiters = {
+                    \ 'l': { 'pattern': '--\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] }
+                    \ }
+                ]])
+		end,
+	},
+	-- increment
+	{
+		"monaqa/dial.nvim",
+		keys = {
+			{ "<C-a>", "<Plug>(dial-increment)", desc = "dial-increment" },
+			{ "<C-x>", "<Plug>(dial-decrement)", desc = "dial-decrement" },
+		},
+		config = function()
+			local augend = require("dial.augend")
+			require("dial.config").augends:register_group({
+				default = {
+					augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
+					augend.constant.alias.bool, -- boolean value (true <-> false)
+					augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+					augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
+				},
+			})
+		end,
 	},
 	-- 居中
 	{
@@ -27,7 +53,10 @@ lvim.plugins = {
 			require("better_escape").setup()
 		end,
 	},
-	{ "metakirby5/codi.vim", cmd = { "Codi", "CodiNew" } },
+	{
+		"metakirby5/codi.vim",
+		keys = { { "<leader>lc", "<cmd>CodiSelect<cr>", desc = "select codi" } },
+	},
 	-- 高亮todo
 	{
 		"folke/todo-comments.nvim",
@@ -312,7 +341,7 @@ lvim.plugins = {
 	-- v增强
 	{
 		"chrisgrieser/nvim-various-textobjs",
-		opts = { useDefaultKeymaps = true },
+		opts = { useDefaultKeymaps = true, disabledKeymaps = { "L" } },
 	},
 	-- 跳出tab
 	{
@@ -434,5 +463,6 @@ lvim.plugins = {
 			require("mini.indentscope").setup()
 		end,
 	},
+	-- theme
 	{ "olimorris/onedarkpro.nvim" },
 }
