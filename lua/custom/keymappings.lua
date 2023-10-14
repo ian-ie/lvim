@@ -3,7 +3,8 @@ local function setn(key, cmd, opt)
 end
 
 local function setv(key, cmd, opt)
-	vim.keymap.set("v", key, cmd, opt)
+	vim.keymap.set("x", key, cmd, opt)
+	vim.keymap.set("o", key, cmd, opt)
 end
 
 local function seti(key, cmd, opt)
@@ -105,5 +106,4 @@ lvim.lsp.buffer_mappings.normal_mode["gr"] = {
 	"Goto references",
 }
 
-lvim.builtin.which_key.mappings.L.c = { name = "LeetCode" }
 lvim.builtin.which_key.mappings.s.p = nil
