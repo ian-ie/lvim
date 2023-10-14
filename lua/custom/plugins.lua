@@ -421,6 +421,17 @@ lvim.plugins = {
 			{ "<leader>ne", "<cmd>NoiceEnable<cr>", desc = "NoiceEnable" },
 		},
 	},
+	-- 加速j k
+	{
+		"rainbowhxch/accelerated-jk.nvim",
+		config = function()
+			require("neoscroll").setup(others.scroll)
+		end,
+		keys = {
+			{ "j", "<Plug>(accelerated_jk_gj)", mode = "n" },
+			{ "k", "<Plug>(accelerated_jk_gk)", mode = "n" },
+		},
+	},
 	-- 平滑滚动
 	{
 		"karb94/neoscroll.nvim",
