@@ -1,0 +1,38 @@
+{
+    "sproto struct": {
+        "scope": "sproto",
+        "prefix": "struct",
+        "body": [".${1:name} {", "\t${2:#structbody}", "}"],
+        "description": "sproto struct"
+    },
+    "sproto req": {
+        "scope": "sproto",
+        "prefix": "req",
+        "body": [
+            "${1:name} ${2:number}{",
+            "\trequest {",
+            "\t\t${3:#reqbody}",
+            "\t}",
+            "\tresponse{",
+            "\t\tr : 0",
+            "\t\terrorData 1: errorData",
+            "\t\titems 2 : *items(id)",
+            "\t\t${4:#respbody}",
+            "\t}",
+            "}"
+        ],
+        "description": "sproto req"
+    },
+    "sproto sync": {
+        "scope": "sproto",
+        "prefix": "sync",
+        "body": [
+            "${1:sync name} ${2:number}{",
+            "\trequest {",
+            "\t\t${3:#reqbody}",
+            "\t}",
+            "}"
+        ],
+        "description": "sproto sync"
+    }
+}

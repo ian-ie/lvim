@@ -1,0 +1,27 @@
+{
+"requset" : {
+		"scope": "lua",
+		"prefix": "sreq",
+		"body": [
+			"--- @param player PlayerDb",
+			"function REQUEST.${1:sprotoreq}(player, request)",
+			"\t${3:--code}",
+			"\tretutn ${4:--retrun msg}",
+			"end"
+		],
+		"description": "sproto request"
+		
+	},
+	"tclass":{
+		"scope": "lua",
+		"prefix": "tclass",
+		"body": [
+			"--- @class ${TM_FILENAME_BASE}: TCLASS${1: ,fatherclass}",
+			"local ${TM_FILENAME_BASE} = class(\"${TM_FILENAME_BASE}\" ${1:, fatherclass})",
+			"function ${TM_FILENAME_BASE}:init()",
+			"\t${2:-- init code}",
+			"end"
+		],
+		"description": "sproto request"
+	}
+}

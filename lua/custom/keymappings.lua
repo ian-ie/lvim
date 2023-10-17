@@ -107,3 +107,4 @@ lvim.lsp.buffer_mappings.normal_mode["gr"] = {
 }
 
 lvim.builtin.which_key.mappings.s.p = nil
+lvim.builtin.which_key.mappings.Q = {"<cmd>qall<cr>", "Quit All"}
