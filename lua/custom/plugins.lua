@@ -3,6 +3,15 @@ local others = require("custom.configs.others")
 lvim.plugins = {
 	{ "spin6lock/vim_sproto", ft = "sproto" },
 	{
+		"glepnir/template.nvim",
+		cmd = { "Template", "TemProject" },
+		config = function()
+			require("template").setup({
+				temp_dir = "~/.config/lvim/template",
+			})
+		end,
+	},
+	{
 		"folke/zen-mode.nvim",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "toggle zen mode" } },
 	},
@@ -269,8 +278,8 @@ lvim.plugins = {
 		"voldikss/vim-translator",
 		cmd = "TranslateW",
 		keys = {
-			{ "gt", "<cmd>TranslateW<cr>", desc = "window", mode = { "n", "v" } },
-			{ "gC", "<cmd>Translate --target_lang=en <cr>", desc = "to en", "v" },
+			{ "gt", "<cmd>TranslateW<cr>", desc = "to cn", mode = { "n", "v" } },
+			{ "gC", "<cmd>TranslateW --target_lang=en<cr>", desc = "to en", mode = { "v", "n" } },
 		},
 	},
 	-- 行跳转
@@ -300,9 +309,9 @@ lvim.plugins = {
 		event = "VeryLazy",
 		branch = "master",
 		enable = false,
-		--[[ init = function()
-			vim.g.VM_maps = {
-				["Find Under"] = "<C-d>",
+		init = function()
+			--[[ vim.g.VM_maps = {
+				["Find Under"] = "<C-n>",
 				-- ["Find Subword Under"] = "<C-u>",
 				["Select All"] = "<C-a>",
 				-- ["Select h"] = "<C-h>",
@@ -312,8 +321,8 @@ lvim.plugins = {
 				["Add Cursor At Pos"] = "<C-x>",
 				-- ["Add Cursor At Word"] = "<C-w>",
 				["Remove Region"] = "q",
-			}
-		end, ]]
+			} ]]
+		end,
 	},
 
 	-- 快速移动
@@ -431,7 +440,6 @@ lvim.plugins = {
 			})
 		end,
 	},
-
 	--折叠
 	{
 		"kevinhwang91/nvim-ufo",
@@ -474,7 +482,6 @@ lvim.plugins = {
 			-- stylua: ignore end
 		},
 	},
-
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",

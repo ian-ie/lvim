@@ -1,27 +1,46 @@
 {
-"requset" : {
-		"scope": "lua",
-		"prefix": "sreq",
-		"body": [
-			"--- @param player PlayerDb",
-			"function REQUEST.${1:sprotoreq}(player, request)",
-			"\t${3:--code}",
-			"\tretutn ${4:--retrun msg}",
-			"end"
-		],
-		"description": "sproto request"
-		
-	},
-	"tclass":{
-		"scope": "lua",
-		"prefix": "tclass",
-		"body": [
-			"--- @class ${TM_FILENAME_BASE}: TCLASS${1: ,fatherclass}",
-			"local ${TM_FILENAME_BASE} = class(\"${TM_FILENAME_BASE}\" ${1:, fatherclass})",
-			"function ${TM_FILENAME_BASE}:init()",
-			"\t${2:-- init code}",
-			"end"
-		],
-		"description": "sproto request"
-	}
+    "requset": {
+        "scope": "lua",
+        "prefix": "sreq",
+        "body": [
+            "--- @param player PlayerDb",
+            "function REQUEST.${1:sprotoreq}(player, request)",
+            "\t${3:--code}",
+            "\tretutn ${4:--retrun msg}",
+            "end"
+        ],
+        "description": "sproto request"
+    },
+    "fclass": {
+        "scope": "lua",
+        "prefix": "fclass",
+        "body": [
+            "--- @class ${TM_FILENAME_BASE}: TCLASS${1: ,fatherclass}",
+            "local ${TM_FILENAME_BASE} = class(\"${TM_FILENAME_BASE}\"${1:, fatherclass})",
+            "function ${TM_FILENAME_BASE}:init()",
+            "\t${2:-- init code}",
+            "end"
+        ],
+        "description": "文件名的tclass模板"
+    },
+    "tclass": {
+        "scope": "lua",
+        "prefix": "tclass",
+        "body": [
+            "--- @class ${1:yourClass}: TCLASS${2: ,fatherclass}",
+            "local ${1:yourClass} = class(\"${1:yourClass}\"${2:, fatherclass})\n",
+            "function ${1:yourClass}:init()",
+            "\t${3:-- init code}",
+            "end"
+        ],
+        "description": "自定义的tclass模板"
+    },
+    "ff": {
+        "prefix":"ff",
+        "body":[
+            "function ${TM_FILENAME_BASE}:${1}()",
+            "\t${2:--code}",
+            "end"
+        ]
+    }
 }

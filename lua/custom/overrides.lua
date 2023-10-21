@@ -4,6 +4,10 @@ lvim.lsp.on_attach_callback = function()
 	require("lsp_signature").on_attach()
 end
 
+lvim.builtin.telescope.on_config_done = function(telescope)
+	pcall(telescope.load_extension, "find_template")
+end
+
 lvim.builtin.indentlines.options.show_current_context = false
 lvim.builtin.project.patterns = { ".git", ".svn", ".luarc.json", "package.json", ".project" }
 

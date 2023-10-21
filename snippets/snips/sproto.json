@@ -13,10 +13,10 @@
             "\trequest {",
             "\t\t${3:#reqbody}",
             "\t}",
-            "\tresponse{",
-            "\t\tr : 0",
+            "\tresponse {",
+            "\t\tr 0: integer",
             "\t\terrorData 1: errorData",
-            "\t\titems 2 : *items(id)",
+            "\t\titems 2: *item(id)",
             "\t\t${4:#respbody}",
             "\t}",
             "}"
@@ -27,7 +27,7 @@
         "scope": "sproto",
         "prefix": "sync",
         "body": [
-            "${1:sync name} ${2:number}{",
+            "${1:sync_name} ${2:number}{",
             "\trequest {",
             "\t\t${3:#reqbody}",
             "\t}",
