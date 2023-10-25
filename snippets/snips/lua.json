@@ -36,11 +36,11 @@
         "description": "自定义的tclass模板"
     },
     "ff": {
-        "prefix":"ff",
-        "body":[
-            "function ${TM_FILENAME_BASE}:${1}()",
-            "\t${2:--code}",
-            "end"
-        ]
+        "prefix": "ff",
+        "body": ["function ${TM_FILENAME_BASE}:${1}()", "\t${2:--code}", "end"]
+    },
+    "+=": {
+        "prefix": "add",
+        "body": "${1:base} = ${1} + ${2:add}"
     }
 }

@@ -56,16 +56,22 @@ setwks("S", {
 
 seti("<C-s>", "<ESC><cmd>w<cr>")
 
-setn("H", "^", { noremap = true, silent = true })
-setn("L", "$", { noremap = true, silent = true })
-setn("go", "%", { noremap = true, silent = true, desc = "Goto Match" })
+setn("H", "^")
+setn("L", "$")
+setn("go", "%")
 setn("yaa", "<cmd>%y+<cr>", { desc = "copy all" })
 setn("<C-s>", "<cmd>w<cr>")
+setn("<A-j>", "<cmd>m +1<cr>")
+setn("<A-k>", "<cmd>m -2<cr>")
+setn("<A-h>", "xhP")
+setn("<A-l>", "xp")
 setn("<Tab>", "<cmd>BufferLineCycleNext<cr>")
 setn("<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
 
-setv("H", "^", { noremap = true, silent = true })
-setv("L", "$", { noremap = true, silent = true })
+setv("L", "$")
+setv("H", "^")
+setv("<A-j>", "<cmd>m +1<cr>")
+setv("<A-k>", "<cmd>m -2<cr>")
 
 setwk("o", "<cmd>SymbolsOutline<cr>", "SymbolsOutline")
 setwk("x", "<cmd>BufferKill<CR>", "Close Buffer")
@@ -85,6 +91,7 @@ lvim.lsp.buffer_mappings.normal_mode["[e"] = {
 	end,
 	"Goto Prev Error",
 }
+
 lvim.lsp.buffer_mappings.normal_mode["]e"] = {
 	function()
 		return vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
@@ -107,4 +114,5 @@ lvim.lsp.buffer_mappings.normal_mode["gr"] = {
 }
 
 lvim.builtin.which_key.mappings.s.p = nil
-lvim.builtin.which_key.mappings.Q = {"<cmd>qall<cr>", "Quit All"}
+lvim.builtin.which_key.mappings.Q = { "<cmd>qall<cr>", "Quit All" }
+lvim.builtin.which_key.mappings.a = { "ggVG", "Select All" }
