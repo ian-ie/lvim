@@ -170,6 +170,11 @@ lvim.plugins = {
 	},
 	-- tabnien
 	{
+		"tzachar/cmp-tabnine",
+		build = "./install.sh",
+		dependencies = "hrsh7th/nvim-cmp",
+	},
+	{
 		"codota/tabnine-nvim",
 		build = "./dl_binaries.sh",
 		config = function()
@@ -180,7 +185,7 @@ lvim.plugins = {
 				debounce_ms = 800,
 				suggestion_color = { gui = "#808080", cterm = 244 },
 				exclude_filetypes = { "TelescopePrompt", "NvimTree" },
-				log_file_path = "~/script/" -- absolute path to Tabnine log file,
+				log_file_path = "~/script/", -- absolute path to Tabnine log file,
 			})
 		end,
 	},
