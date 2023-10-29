@@ -5,6 +5,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.cursorline = true
 vim.opt.fileencodings = "utf-8,gb2312,gbk"
+vim.opt.formatoptions=""
 vim.opt.mouse = ""
 
 if vim.fn.has("wsl") == 1 then
