@@ -160,34 +160,22 @@ M.scroll = {
 	post_hook = nil, -- Function to run after the scrolling animation ends
 }
 
-local transparent_background = true
+local tr = false
 M.catppuccin = {
-	flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
+	flavour = "macchiato", -- Can be one of: latte, frappe, macchiato, mocha
+	transparent_background = tr,
 	background = { light = "latte", dark = "mocha" },
 	dim_inactive = {
-		enabled = false,
+		enabled = true,
 		-- Dim inactive splits/windows/buffers.
 		-- NOT recommended if you use old palette (a.k.a., mocha).
 		shade = "dark",
 		percentage = 0.15,
 	},
+	no_italic = true,
 	show_end_of_buffer = false, -- show the '~' characters after the end of buffers
 	term_colors = true,
 	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-	styles = {
-		comments = { "italic" },
-		properties = { "italic" },
-		functions = { "bold" },
-		keywords = { "italic" },
-		operators = { "bold" },
-		conditionals = { "bold" },
-		loops = { "bold" },
-		booleans = { "bold", "italic" },
-		numbers = {},
-		types = {},
-		strings = {},
-		variables = {},
-	},
 	integrations = {
 		treesitter = true,
 		native_lsp = {
@@ -245,7 +233,7 @@ M.catppuccin = {
 		semantic_tokens = true,
 		symbols_outline = true,
 		telekasten = false,
-		telescope = { enabled = true, style = "nvchad" },
+		telescope = { enabled = true},
 		treesitter_context = true,
 		ts_rainbow2 = true,
 		vim_sneak = false,
@@ -257,10 +245,10 @@ M.catppuccin = {
 		all = function(cp)
 			return {
 				-- For base configs
-				NormalFloat = { fg = cp.text, bg = transparent_background and cp.none or cp.mantle },
+				NormalFloat = { fg = cp.text, bg = tr and cp.none or cp.mantle },
 				FloatBorder = {
-					fg = transparent_background and cp.blue or cp.mantle,
-					bg = transparent_background and cp.none or cp.mantle,
+					fg = tr and cp.blue or cp.mantle,
+					bg = tr and cp.none or cp.mantle,
 				},
 				CursorLineNr = { fg = cp.green },
 
@@ -279,15 +267,15 @@ M.catppuccin = {
 				IblScope = { fg = cp.surface2, style = { "bold" } },
 
 				-- For nvim-cmp and wilder.nvim
-				Pmenu = { fg = cp.overlay2, bg = transparent_background and cp.none or cp.base },
-				PmenuBorder = { fg = cp.surface1, bg = transparent_background and cp.none or cp.base },
+				Pmenu = { fg = cp.overlay2, bg = tr and cp.none or cp.base },
+				PmenuBorder = { fg = cp.surface1, bg = tr and cp.none or cp.base },
 				PmenuSel = { bg = cp.green, fg = cp.base },
 				CmpItemAbbr = { fg = cp.overlay2 },
 				CmpItemAbbrMatch = { fg = cp.blue, style = { "bold" } },
 				CmpDoc = { link = "NormalFloat" },
 				CmpDocBorder = {
-					fg = transparent_background and cp.surface1 or cp.mantle,
-					bg = transparent_background and cp.none or cp.mantle,
+					fg = tr and cp.surface1 or cp.mantle,
+					bg = tr and cp.none or cp.mantle,
 				},
 
 				-- For fidget
@@ -299,7 +287,7 @@ M.catppuccin = {
 				NvimTreeIndentMarker = { fg = cp.surface2 },
 
 				-- For trouble.nvim
-				TroubleNormal = { bg = transparent_background and cp.none or cp.base },
+				TroubleNormal = { bg = tr and cp.none or cp.base },
 
 				-- For telescope.nvim
 				TelescopeMatching = { fg = cp.lavender },
@@ -320,7 +308,7 @@ M.catppuccin = {
 				-- For nvim-treehopper
 				TSNodeKey = {
 					fg = cp.peach,
-					bg = transparent_background and cp.none or cp.base,
+					bg = tr and cp.none or cp.base,
 					style = { "bold", "underline" },
 				},
 

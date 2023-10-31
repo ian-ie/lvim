@@ -566,5 +566,5 @@ lvim.plugins = {
 	},
 	-- theme
 	{ "olimorris/onedarkpro.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = others.catppuccin },
+	{ "catppuccin/nvim", name = "catppuccin", pririty = 1000, opts = others.catppuccin },
 }

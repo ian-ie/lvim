@@ -82,7 +82,7 @@ setwksn("n", "Notice")
 setwksn("r", "SnipRun")
 setwksn("t", "Trouble")
 setwks("s", { { "P", "<cmd>Telescope projects<cr>", "projects" } })
-setwks("b", { { "f", ":BufferLineCyclePick<cr>", "pick buffer" } })
+setwks("b", { { "f", ":BufferLinePick<cr>", "pick buffer" } })
 setwks("l", {
 	{ "vo", ":lua vim.diagnostic.config({ virtual_text = true})<CR>", "open virtual" },
 	{ "vc", ":lua vim.diagnostic.config({ virtual_text = false})<CR>", "close virtual" },
