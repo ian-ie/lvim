@@ -315,18 +315,18 @@ lvim.plugins = {
 		branch = "master",
 		enable = false,
 		init = function()
-			--[[ vim.g.VM_maps = {
+			vim.g.VM_maps = {
 				["Find Under"] = "<C-n>",
 				-- ["Find Subword Under"] = "<C-u>",
-				["Select All"] = "<C-a>",
+				-- ["Select All"] = "<C-a>",
 				-- ["Select h"] = "<C-h>",
 				-- ["Select l"] = "<C-l>",
-				["Add Cursor Up"] = "<C-q>",
-				["Add Cursor Down"] = "<C-e>",
-				["Add Cursor At Pos"] = "<C-x>",
+				["Add Cursor Up"] = "<C-k>",
+				["Add Cursor Down"] = "<C-j>",
+				["Add Cursor At Pos"] = "<C-c>",
 				-- ["Add Cursor At Word"] = "<C-w>",
 				["Remove Region"] = "q",
-			} ]]
+			}
 		end,
 	},
 
